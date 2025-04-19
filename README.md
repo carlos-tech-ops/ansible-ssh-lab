@@ -50,7 +50,7 @@ ssh -i ~/.ssh/id_ed25519 ops-admin@192.168.1.8
 ## Inventory & Configuration
 
 hosts.ini
-```ini
+```
 [lab]
 192.168.1.8 ansible_user=ops-admin ansible_ssh_private_key_file=~/.ssh/id_ed25519
 ```
