@@ -54,3 +54,44 @@ hosts.ini
 [lab]
 192.168.1.8 ansible_user=ops-admin ansible_ssh_private_key_file=~/.ssh/id_ed25519
 ```
+ansible.cfg
+```
+[defaults]
+inventory = hosts.ini
+host_key_checking = False
+```
+
+## First Ping Test
+
+Ran the following from macOS terminal:
+```
+ansible lab -m ping
+```
+Output:
+```
+192.168.1.8 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+```
+
+## Common Errors & Fixes
+
+  •	Permission denied (publickey)
+Cause: Wrong path to key or wrong user
+Fix: Verified file permissions and SSH config
+	•	Operation timed out
+Cause: Fedora firewall blocking port 22
+Fix: Opened SSH port and restarted sshd
+
+## Next Steps
+
+  •	Create first Ansible playbook to install a package remotely
+	•	Automate SELinux and firewall hardening tasks
+	•	Document Phase 3: Security automation with playbooks
+
+## Conclusion
+
+Ansible was not just installed, it was learned through broken connections, SSH failures, firewall reconfigurations, and direct system control.
+This lab marks the transition from “knowing what Ansible is” to using it with real infrastructure.
+
